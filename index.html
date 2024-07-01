@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Calculation</title>
+</head>
+<body>
+    <h1>Paired Kidney Exchange Calculations</h1>
+    <label for="pairs">Number of pairs (n<sub>p</sub>):</label>
+    <input type="number" id="pairs" value="10" min="1" oninput="calculateComparisons()">
+
+    <h2>Results</h2>
+    <p id="rdComparisons"></p>
+    <p id="ppComparisons"></p>
+
+    <script>
+        function calculateComparisons() {
+            var n_p = document.getElementById('pairs').value;
+            var n_c = n_p * (n_p - 1);
+            var n_m = n_p * (n_p - 1) / 2;
+
+            document.getElementById('rdComparisons').innerHTML = 'Number of (r-d) comparisons: ' + n_c;
+            document.getElementById('ppComparisons').innerHTML = 'Number of (p-p) comparisons: ' + n_m;
+        }
+
+        // Initial calculation
+        calculateComparisons();
+    </script>
+</body>
+</html>
