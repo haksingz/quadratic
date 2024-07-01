@@ -2,6 +2,16 @@
 <html>
 <head>
     <title>Live Calculation</title>
+     <style>
+        body {
+            background-color: #f0f0f0; /* Light grey background */
+            font-family: Arial, sans-serif; /* Optional: Add a font for better readability */
+            padding: 20px; /* Optional: Add some padding for better layout */
+        }
+        h1, h2, label, p {
+            color: #333; /* Dark grey text for contrast */
+        }
+    </style>
 </head>
 <body>
     <h1>Complexity Calculator</h1>
@@ -13,13 +23,16 @@
     <p id="ppComparisons"></p>
 
     <script>
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
         function calculateComparisons() {
             var n_p = document.getElementById('pairs').value;
             var n_c = n_p * (n_p - 1);
             var n_m = n_p * (n_p - 1) / 2;
 
-            document.getElementById('rdComparisons').innerHTML = 'Number of (r-d) comparisons (n<sub>c</sub>): ' + n_c;
-            document.getElementById('ppComparisons').innerHTML = 'Number of (p-p) comparisons (n<sub>m</sub>): ' + n_m;
+            document.getElementById('rdComparisons').innerHTML = 'Number of (r-d) comparisons (n<sub>c</sub>): ' + numberWithCommas(n_c);
+            document.getElementById('ppComparisons').innerHTML = 'Number of (p-p) comparisons (n<sub>m</sub>): ' + numberWithCommas(n_m);
         }
 
         // Initial calculation
